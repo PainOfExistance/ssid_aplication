@@ -1,0 +1,21 @@
+<div class="application-list">
+  <h2>Job Applications</h2>
+  <hr>
+  <div *ngFor="let aplication of aplications | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+    <div class="application-item">
+      <h3>Ime: {{ aplication.name }}</h3><h3>Priimek:{{ aplication.surname }}</h3>
+      <p>Naslov: {{ aplication.address }}</p>
+      <p>Opis: {{ aplication.about }}</p>
+      <p>Current rating: {{aplication.rating}}</p>
+      <mat-radio-group [(ngModel)]="aplication.rating" (ngModelChange)="ratingSelected(aplication)">
+        <mat-radio-button value="1">1</mat-radio-button>
+        <mat-radio-button value="2">2</mat-radio-button>
+        <mat-radio-button value="3">3</mat-radio-button>
+        <mat-radio-button value="4">4</mat-radio-button>
+        <mat-radio-button value="5">5</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <hr>
+  </div>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>

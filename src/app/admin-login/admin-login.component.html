@@ -1,0 +1,12 @@
+<div class="content" role="main">
+  <div class="form-container">
+    <h2 class="form-title">Prijava administratorja</h2>
+    <mat-form-field>
+      <input matInput required placeholder="Uporabniško ime" value="" #name>
+    </mat-form-field>
+    <br>
+    <br>
+    <button mat-raised-button (click)="LogIn()">Prijava</button>
+    <div [ngStyle]="{ 'color': 'Red' }">{{feedback}}</div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="content" role="main">
+  <div *ngIf="!success; else SuccessPageComponent">
+  <div class="form-container">
+    <h2 class="form-title">Prijava na delo</h2>
+    <mat-form-field>
+      <input matInput required placeholder="Ime" value="" #name>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field>
+      <input matInput required placeholder="Priimek" value="" #surname>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field>
+      <input matInput required placeholder="Naslov" value="" #address>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field>
+      <textarea matInput required rows="5" placeholder="Povej nekaj o sebi in o delu, ki ga želiš opravlati" value="" #about></textarea>
+    </mat-form-field>
+    <br>
+    <br>
+    <button mat-raised-button (click)="Oddaj()">Oddaj</button>
+  </div>
+  <div [ngStyle]="{ 'color': feedbackColor }">{{feedback}}</div>
+  </div>
+  <ng-template #SuccessPageComponent>
+    <app-success-page (newApplication)="resetForm()"></app-success-page>
+  </ng-template>
+  <button mat-raised-button (click)="loginAsAdmin()">Prijavi se kot administrator</button>
+</div>
